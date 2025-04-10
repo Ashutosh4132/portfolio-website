@@ -4,6 +4,8 @@ import logo from "../assets/img/am.svg";
 import navIcon1 from "../assets/img/nav-icon1.svg";
 import navIcon2 from '../assets/img/github-mark-white.svg';
 import navIcon3 from '../assets/img/icons8-gmail-logo.svg';
+import React from 'react';
+
 
 export const Footer = () => {
   return (

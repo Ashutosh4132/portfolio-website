@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import contactImg from "../assets/img/contact-img.svg";
 import TrackVisibility from 'react-on-screen';
-
+import React from 'react';
 export const Contact = () => {
   const [formDetails, setFormDetails] = useState({
     firstName: '',

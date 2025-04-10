@@ -6,7 +6,7 @@ import meter2 from "../assets/img/meter2.svg";
 import meter3 from "../assets/img/meter3.svg";
 import colorSharp from "../assets/img/color-sharp.png";
 import { Container, Row, Col } from 'react-bootstrap';
-
+import React from 'react';
 export const Skills = () => {
   const responsive = useMemo(() => ({
     superLargeDesktop: {

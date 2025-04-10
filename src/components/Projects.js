@@ -6,6 +6,7 @@ import projImg3 from "../assets/img/home-image-to-3d.png";
 import colorSharp2 from "../assets/img/color-sharp2.png";
 import 'animate.css';
 import TrackVisibility from 'react-on-screen';
+import React from 'react';
 
 export const Projects = () => {
   const projects = [
@@ -40,13 +41,13 @@ export const Projects = () => {
       ]
     },
     {
-      title: "Business Startup",
+      title: "Telegram Scraping software",
       description: "Design & Development",
       imgUrl: projImg1,
       points: [
-        "Built scalable website",
+        "Built telegram scraping software with GUI",
         "User-friendly UI/UX",
-        "Integrated payment system"
+        "Integrated directory selection system"
       ]
     },
     {
