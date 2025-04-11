@@ -44,7 +44,7 @@ export const Contact = () => {
   };
 
   return (
-    <section className="contact" id="connect">
+    <section className="contact starry-bg" id="contact">
       <Container>
         <Row className="align-items-center">
           <Col md={6}>

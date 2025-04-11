@@ -13,7 +13,8 @@ import { Projects } from "./components/Projects";
 import { Contact } from "./components/Contact";
 import { Footer } from "./components/Footer";
 import ProfessionalExp from "./components/Professional_exp";
-
+import Certification from './components/Certifications';
+import MouseTrail from "./components/MouseTrail"
 function App() {
   useEffect(() => {
     AOS.init({
@@ -25,12 +26,14 @@ function App() {
   return (
     <Router>
       <div className="App">
+        <MouseTrail/>
         <NavBar />
         <Banner />
         <Technologies />
         <ProfessionalExp />
         <Skills />
         <Projects />
+        <Certification/>
         <Contact />
         <Footer />
       </div>

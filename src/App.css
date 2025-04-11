@@ -232,14 +232,34 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
 
 /************ Banner Css ************/
 .banner {
-  margin-top: 0;
-  padding: 260px 0 100px 0;
-  background-image: url('./assets/img/banner-bg.png');
-  background-position: top center;
-  background-size: cover;
-  background-repeat: no-repeat;
-  margin-bottom: 60px; /* ✅ Add this */
+  position: relative;
+  overflow: hidden;
+  z-index: 0;
+  min-height: 100vh; /* ⬅️ doubled the height */
+  background:
+    radial-gradient(ellipse at center, rgba(13, 13, 31, 0.6), rgba(0, 0, 0, 0.85)),
+    url("https://transparenttextures.com/patterns/stardust.png");
+  background-size: cover, 400px 400px;
+  background-repeat: no-repeat, repeat;
+  background-position: center, center;
+  animation: starscroll 120s linear infinite;
+  display: flex;
+  align-items: center;
 }
+
+
+/* Layer the banner background image using a pseudo-element */
+.banner::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-image: url("/assets/img/banner-bg.png");
+  background-size: cover;
+  background-position: center;
+  opacity: 0.5; /* 👈 Adjust for visibility */
+  z-index: -1;
+}
+
 
 .banner .tagline {
   font-weight: 700;
@@ -332,6 +352,48 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
   color: #aaa;
   margin-bottom: 20px;
 }
+.tech-tech-group {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 10px;
+}
+
+.tech-group-label {
+  font-weight: 600;
+  color: #00ffff;
+  margin-right: 10px;
+  white-space: nowrap;
+}
+
+.tech-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+
+.tech-tag {
+  font-size: 12px;
+  font-weight: 600;
+  color: #00ffff;
+  background: rgba(0, 255, 255, 0.1);
+  border: 1px solid rgba(0, 255, 255, 0.3);
+  border-radius: 6px;
+  padding: 4px 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  display: inline-flex;
+  align-items: center;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.tech-tag:hover {
+  background-color: rgba(0, 255, 255, 0.2);
+  transform: scale(1.1);
+}
+
 
 /* Icons Container */
 .tech-icons {
@@ -341,11 +403,18 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
   margin-top: 20px;
 }
 
-/* Individual Icon Style */
-.tech-item {
-  transition: transform 0.3s ease, filter 0.3s ease;
-  cursor: pointer;
+.tech-item img {
+  width: 80px;
+  height: 80px;
+  position: relative;
+  z-index: 2;
+  background-color: rgba(255, 255, 255, 0.05); /* subtle contrast */
+  border-radius: 10px;
+  padding: 10px;
+  box-shadow: 0 0 8px rgba(0, 255, 255, 0.2); /* glow for visibility */
 }
+
+
 
 /* Hover Effect */
 .tech-item:hover {
@@ -433,8 +502,14 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
 .project {
   padding: 80px 0;
   position: relative;
-  background-color: black;
+  background: radial-gradient(ellipse at center, #0d0d1f 0%, #000000 100%);
+  background-image: url("https://transparenttextures.com/patterns/stardust.png");
+  background-size: 400px 400px;
+  animation: starscroll 120s linear infinite;
+  overflow: hidden;
+  z-index: 0;
 }
+
 .project h2 {
 	font-size: 45px;
 	font-weight: 700;
@@ -558,8 +633,13 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
 /************ Projects Css ************/
 .contact {
   background: linear-gradient(90.21deg, #AA367C -5.91%, #4A2FBD 111.58%);
-  padding: 60px 0 200px 0;
+  padding: 80px 0 200px 0;  /* more bottom padding */
+  margin-bottom: 0px;     /* creates buffer above footer */
+  position: relative;       /* ensures it flows correctly */
+  z-index: 1;
 }
+
+
 .contact img {
   width: 92%;
 }
@@ -629,19 +709,23 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
 
 /************ Footer Css ************/
 .footer {
-  padding: 0 0 50px 0;
-  background-image: url('./assets/img/footer-bg.png');
-  background-position: center center;
-  background-size: cover;
-  background-repeat: no-repeat;
+  padding: 60px 20px;
+  position: relative;
+  background: radial-gradient(ellipse at center, #0d0d1f 0%, #000000 100%);
+  background-image: url("https://transparenttextures.com/patterns/stardust.png");
+  background-size: 400px 400px;
+  animation: starscroll 120s linear infinite;
+  z-index: 0;
+  overflow: hidden;
 }
+
 .newsletter-bx {
   background: #FFFFFF;
   border-radius: 55px;
   color: #121212;
   padding: 85px 125px;
   margin-bottom: 80px;
-  margin-top: -122px;
+  margin-top: -12px;
 }
 .newsletter-bx h3 {
   font-weight: 700;
@@ -866,4 +950,326 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
   .experience-content li {
     font-size: 16px;
   }
+}
+
+.planet-core {
+  background: radial-gradient(circle at center, #1a1a1a 0%, #121212 70%, #0d0d0d 100%);
+  box-shadow: 0 0 50px rgba(0, 255, 255, 0.3), 0 0 80px rgba(0, 255, 255, 0.2) inset;
+  border: 3px solid rgba(0, 255, 255, 0.4);
+  border-radius: 30px;
+  overflow: hidden;
+  position: relative;
+  z-index: 2;
+}
+.skill {
+  background: radial-gradient(ellipse at center, #0d0d1f 0%, #000000 100%);
+  background-image: url("https://transparenttextures.com/patterns/stardust.png");
+  background-size: 400px 400px;
+  animation: starscroll 60s linear infinite;
+  overflow: hidden;
+  position: relative;
+  z-index: 0;
+}
+
+@keyframes starscroll {
+  0% { background-position: 0 0; }
+  100% { background-position: 1000px 1000px; }
+}
+
+
+.skill {
+  background: radial-gradient(ellipse at center, #0d0d1f 0%, #000000 100%);
+  background-image: url("https://transparenttextures.com/patterns/stardust.png");
+  background-size: 400px 400px;
+  animation: starscroll 120s linear infinite;
+  overflow: hidden;
+  position: relative;
+  z-index: 0;
+}
+
+@keyframes starscroll {
+  0% { background-position: 0 0; }
+  100% { background-position: 1000px 1000px; }
+}
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: radial-gradient(white 1px, transparent 1px),
+                    radial-gradient(white 1px, transparent 1px);
+  background-size: 3px 3px, 6px 6px;
+  background-position: 0 0, 50% 50%;
+  animation: fall-stars 60s linear infinite;
+  pointer-events: none;
+  z-index: -1;
+  opacity: 0.4;
+}
+
+@keyframes fall-stars {
+  from {
+    background-position: 0 0, 50% 50%;
+  }
+  to {
+    background-position: 0 2000px, 50% 2050px;
+  }
+}
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  pointer-events: none;
+  z-index: -1;
+  animation: stars-fall 60s linear infinite;
+}
+
+@keyframes stars-fall {
+  0% {
+    background: radial-gradient(circle, white 1px, transparent 1px) 0 0,
+                radial-gradient(circle, rgba(255,255,255,0.8) 1px, transparent 1px) 100px 100px;
+    background-size: 200px 200px;
+  }
+  100% {
+    background: radial-gradient(circle, white 1px, transparent 1px) 0 2000px,
+                radial-gradient(circle, rgba(255,255,255,0.8) 1px, transparent 1px) 100px 2100px;
+    background-size: 200px 200px;
+  }
+}
+.universal-background,
+.technologies,
+.experience-wide {
+  background: radial-gradient(ellipse at center, #0d0d1f 0%, #000000 100%);
+  background-image: url("https://transparenttextures.com/patterns/stardust.png");
+  background-size: 400px 400px;
+  animation: starscroll 120s linear infinite;
+
+  position: relative;
+  z-index: auto;          /* changed from 0 to auto */
+  overflow: hidden;
+}
+
+/* Reusable starry background */
+.starry-bg {
+  background: radial-gradient(ellipse at center, #0d0d1f 0%, #000000 100%);
+  background-image: url("https://transparenttextures.com/patterns/stardust.png");
+  background-size: 400px 400px;
+  animation: starscroll 120s linear infinite;
+  overflow: hidden;
+  position: relative;
+  z-index: 0;
+}
+
+/* Optional: make text pop more */
+.starry-bg h2,
+.starry-bg h1,
+.starry-bg p {
+  color: #fff;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+}
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in-up {
+  opacity: 0;
+  transform: translateY(40px);
+  animation: fadeInUp 0.8s ease forwards;
+}
+
+.fade-in-delay {
+  animation-delay: 0.5s;
+}
+.skill-item {
+  transition: transform 0.4s ease-in-out;
+}
+.skill-item:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+}
+.certifications-section {
+  min-height: 70vh;
+  background: radial-gradient(ellipse at center, #0d0d1f 0%, #000000 100%);
+  background-image: url("https://transparenttextures.com/patterns/stardust.png");
+  background-size: 400px 400px;
+  padding: 100px 30px;
+  text-align: center;
+}
+
+.certification-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  margin-top: 40px;
+  align-items: stretch;
+}
+
+.certification-card {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(0, 255, 255, 0.2);
+  border-radius: 12px;
+  padding: 20px;
+  height: 450px; /* 150% of common card height */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.certification-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.4);
+}
+
+
+
+.certification-card h4 {
+  color: #00ffff;
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.certification-card p {
+  color: #ccc;
+  font-size: 20px;
+}
+.view-details-btn {
+  margin-top: 12px;
+  padding: 8px 16px;
+  background-color: #00ffff;
+  color: #000;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+}
+
+.view-details-btn:hover {
+  background-color: #00dddd;
+}
+
+.certification-dialog {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(8px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.dialog-content {
+  background: #111;
+  border: 2px solid #00ffff;
+  border-radius: 12px;
+  padding: 30px;
+  width: 90%;
+  max-width: 500px;
+  color: white;
+  position: relative;
+  animation: zoomIn 0.3s ease;
+}
+
+@keyframes zoomIn {
+  from {
+    transform: scale(0.85);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+/* 🔒 Prevent scrolling when dialog is open */
+body.dialog-open {
+  overflow: hidden;
+}
+
+/* 💫 Dialog wrapper with glassy blur */
+.certification-dialog {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  background-color: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  transition: opacity 0.3s ease;
+  overflow: hidden;
+}
+
+.dialog-content {
+  background: rgba(17, 17, 17, 0.9);
+  border: 2px solid #00ffff;
+  border-radius: 12px;
+  padding: 30px;
+  width: 90%;
+  max-width: 500px;
+  box-sizing: border-box;
+  animation: zoomInCenter 0.3s ease forwards;
+  transform: scale(1);  /* lock scale */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  position: relative;
+}
+
+@keyframes zoomInCenter {
+  0% {
+    transform: scale(0.85);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.close-btn {
+  position: absolute;
+  top: 12px;
+  right: 16px;
+  font-size: 24px;
+  background: none;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.dialog-open {
+  overflow: hidden;
+}
+
+
+.card-hidden {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.card-fade-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+.download-btn {
+  text-decoration: none;
+}
+.slow-pulse {
+  --animate-duration: 3s; /* Default is 1s, increase to slow it down */
 }

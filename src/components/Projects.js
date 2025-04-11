@@ -3,6 +3,9 @@ import { ProjectCard } from "./ProjectCard";
 import projImg1 from "../assets/img/1723734598352.svg";
 import projImg2 from "../assets/img/rod-shaped-bacteria-possibly-listeria.svg";
 import projImg3 from "../assets/img/home-image-to-3d.png";
+import biotechImg from "../assets/img/1.png";
+import ecommerceImg from "../assets/img/2.png";
+import businessImg from "../assets/img/3.png";
 import colorSharp2 from "../assets/img/color-sharp2.png";
 import 'animate.css';
 import TrackVisibility from 'react-on-screen';
@@ -41,19 +44,19 @@ export const Projects = () => {
       ]
     },
     {
-      title: "Telegram Scraping software",
+      title: "Biotech Trends prediction software",
       description: "Design & Development",
-      imgUrl: projImg1,
+      imgUrl: biotechImg,
       points: [
-        "Built telegram scraping software with GUI",
+        "Built Biotech Trends prediction software with GUI",
         "User-friendly UI/UX",
-        "Integrated directory selection system"
+        "Integrated Llama 3.0 system"
       ]
     },
     {
       title: "Business Website",
       description: "Full Stack Development for a business website",
-      imgUrl: projImg2,
+      imgUrl: businessImg,
       points: [
         "Responsive design",
         "Backend using Node.js",
@@ -63,7 +66,7 @@ export const Projects = () => {
     {
       title: "E-Commerce App",
       description: "Developed a scalable E-Commerce application",
-      imgUrl: projImg3,
+      imgUrl: ecommerceImg,
       points: [
         "Secure payment gateway",
         "Live order tracking",
@@ -76,14 +79,14 @@ export const Projects = () => {
     <section className="project" id="projects">
       <Container>
         <Row>
-          <Col size={12}>
+          <Col xs={12}>
             <TrackVisibility>
               {({ isVisible }) =>
                 <div className={isVisible ? "animate__animated animate__fadeIn" : ""}>
                   <h2>Projects</h2>
                   <p>A Chronological Overview of my Professional Experience</p>
                   <Tab.Container id="projects-tabs" defaultActiveKey="first">
-                    <Nav variant="pills" className="nav-pills mb-5 justify-content-center align-items-center" id="pills-tab">
+                    <Nav variant="pills" className="nav-pills mb-5 justify-content-center align-items-center">
                       <Nav.Item>
                         <Nav.Link eventKey="first">AI & ML</Nav.Link>
                       </Nav.Item>
@@ -96,14 +99,14 @@ export const Projects = () => {
                     </Nav>
                     <Tab.Content id="slideInUp" className={isVisible ? "animate__animated animate__slideInUp" : ""}>
                       <Tab.Pane eventKey="first">
-                        <Row>
+                        <Row className="g-4">
                           {projects.slice(0, 3).map((project, index) => (
                             <ProjectCard key={index} {...project} />
                           ))}
                         </Row>
                       </Tab.Pane>
                       <Tab.Pane eventKey="second">
-                        <Row>
+                        <Row className="g-4">
                           {projects.slice(3, 6).map((project, index) => (
                             <ProjectCard key={index} {...project} />
                           ))}

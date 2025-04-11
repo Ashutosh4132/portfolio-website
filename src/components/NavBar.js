@@ -48,7 +48,7 @@ export const NavBar = () => {
               <a href="https://github.com/Ashutosh4132"><img src={navIcon2} alt="Social Icon 2" /></a>
               <a href="https://mail.google.com/mail/?view=cm&fs=1&to=am9981435388@gmail.com" target="_blank" rel="noopener noreferrer"><img src={navIcon3} alt="Social Icon 3" /></a>
             </div>
-            <HashLink smooth to='#connect'>
+            <HashLink smooth to='#contact'>
               <button className="vvd"><span>Let's Connect</span></button>
             </HashLink>
           </span>
