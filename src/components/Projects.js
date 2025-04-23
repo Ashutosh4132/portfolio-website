@@ -1,3 +1,4 @@
+// Projects.js (Responsive and fluid layout)
 import { Container, Row, Col, Tab, Nav } from "react-bootstrap";
 import { ProjectCard } from "./ProjectCard";
 import projImg1 from "../assets/img/1723734598352.svg";
@@ -77,16 +78,21 @@ export const Projects = () => {
 
   return (
     <section className="project" id="projects">
-      <Container>
-        <Row>
+      <Container fluid className="px-4 px-md-5">
+        <Row className="justify-content-center text-center">
           <Col xs={12}>
             <TrackVisibility>
-              {({ isVisible }) =>
+              {({ isVisible }) => (
                 <div className={isVisible ? "animate__animated animate__fadeIn" : ""}>
-                  <h2>Projects</h2>
-                  <p>A Chronological Overview of my Professional Experience</p>
-                  <Tab.Container id="projects-tabs" defaultActiveKey="first">
-                    <Nav variant="pills" className="nav-pills mb-5 justify-content-center align-items-center">
+                  <h2 style={{ fontSize: "clamp(1.8rem, 4vw, 2.8rem)" }}>Projects</h2>
+                  <p className="mx-auto" style={{ maxWidth: "720px", fontSize: "clamp(1rem, 2.2vw, 1.2rem)" }}>
+                    A Chronological Overview of my Professional Experience
+                  </p>
+                  <Tab.Container defaultActiveKey="first">
+                    <Nav
+                      variant="pills"
+                      className="nav-pills mb-4 justify-content-center flex-wrap gap-2"
+                    >
                       <Nav.Item>
                         <Nav.Link eventKey="first">AI & ML</Nav.Link>
                       </Nav.Item>
@@ -97,28 +103,32 @@ export const Projects = () => {
                         <Nav.Link eventKey="third">Data Analytics</Nav.Link>
                       </Nav.Item>
                     </Nav>
-                    <Tab.Content id="slideInUp" className={isVisible ? "animate__animated animate__slideInUp" : ""}>
+                    <Tab.Content>
                       <Tab.Pane eventKey="first">
-                        <Row className="g-4">
+                        <Row className="gx-3 gy-4">
                           {projects.slice(0, 3).map((project, index) => (
                             <ProjectCard key={index} {...project} />
                           ))}
                         </Row>
                       </Tab.Pane>
                       <Tab.Pane eventKey="second">
-                        <Row className="g-4">
+                        <Row className="gx-3 gy-4">
                           {projects.slice(3, 6).map((project, index) => (
                             <ProjectCard key={index} {...project} />
                           ))}
                         </Row>
                       </Tab.Pane>
                       <Tab.Pane eventKey="third">
-                        <p>Coming Soon...</p>
+                        <Row>
+                          <Col>
+                            <p className="text-muted">Coming Soon...</p>
+                          </Col>
+                        </Row>
                       </Tab.Pane>
                     </Tab.Content>
                   </Tab.Container>
                 </div>
-              }
+              )}
             </TrackVisibility>
           </Col>
         </Row>

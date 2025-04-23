@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import '../App.css';
 import colorSharp from "../assets/img/color-sharp.png";
 import { FaGithub } from "react-icons/fa";
@@ -14,8 +14,8 @@ const experiences = [
     title: 'Software Developement Engineer',
     icon: laptopIcon,
     tooltip: "Working with Telegram & AI tools",
-    sourceLink: "https://github.com/yourusername/project-telegram-ai",
-    buttonColor: "#00f6ff",
+    date: '2nd September 2024 – Present',
+    company: 'GoldenAge',
     description: [
       'Developed a comprehensive Python application that performs Telegram scraping, performs video and audio transcription',
       'Applied an AI model to identify and extract important topics from the scraped data.',
@@ -31,8 +31,7 @@ const experiences = [
     title: 'Research Assistant',
     icon: researchIcon,
     tooltip: "Data science & PhD-level research",
-    sourceLink: "https://github.com/yourusername/listeria-analysis",
-    buttonColor: "#fca311",
+    date: '4th March 2023 – 2nd August 2024',
     description: [
       'Worked under a certified PhD student working with raw dataset to find useful insights and analyze listeria levels in milk.',
       'Used over 10 classification models to find most suitable one by recognition and Personal Learning.',
@@ -47,8 +46,7 @@ const experiences = [
     title: 'AI Engineer',
     icon: aiIcon,
     tooltip: "ML pipelines & intelligent agents",
-    sourceLink: "https://github.com/yourusername/personal-ai-assistant",
-    buttonColor: "#ff4d6d",
+    date: '22nd October 2022 – Present',
     description: [
       'Worked on integration in the personal assistant project including speech recognition, multiple language processing, image recognition and Personal Learning AI model.',
       'Implemented a hybrid AI model combining global knowledge with user-specific data, allowing the assistant to adapt and personalize its responses.',
@@ -63,8 +61,8 @@ const experiences = [
     title: 'Dashboard Designer',
     icon: dashboardIcon,
     tooltip: "BI dashboards & data visualization",
-    sourceLink: "https://github.com/yourusername/powerbi-dashboard",
-    buttonColor: "#7ee787",
+    date: '17th February 2024 – 27th February 2024 (Freelance Project)',
+    company: 'Sanspareils Greenlands',
     description: [
       'Designed and developed an interactive Power BI dashboard for a sports company\'s financial year, showcasing key sales metrics.',
       'Implemented dynamic visualizations and DAX-based custom measures to highlight trends and product category breakdowns.',
@@ -90,26 +88,44 @@ const getTechIcon = (tech) => {
 };
 
 const ProfessionalExp = () => {
+  const [heights, setHeights] = useState([]);
+  const contentRefs = useRef([]);
+
+  useEffect(() => {
+    setHeights(contentRefs.current.map(ref => ref?.offsetHeight || 'auto'));
+  }, []);
+
   return (
     <section className="technologies experience-wide fade-in-up fade-in-delay" id="experience">
       <h2>Professional Experience</h2>
       <div className="experience-cards-container">
         {experiences.map((exp, idx) => (
-          <div key={idx} className="experience-card">
-            <div className="experience-icon-section" title={exp.tooltip}>
-              <img src={exp.icon} alt={`${exp.title} Icon`} className="experience-icon animated-icon" />
-              <a href={exp.sourceLink} target="_blank" rel="noopener noreferrer">
-                <button 
-                  className="source-button" 
-                  style={{ backgroundColor: exp.buttonColor }}
-                >
-                  <FaGithub style={{ marginRight: '8px', fontSize: '16px' }} />
-                  Source Code
-                </button>
-              </a>
+          <div key={idx} className="experience-card" style={{ alignItems: 'flex-start' }}>
+            <div className="experience-date">{exp.date}</div>
+            <div
+              className="experience-icon-section"
+              title={exp.tooltip}
+              style={{
+                width: '20%',
+                height: heights[idx],
+                padding: 0,
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+              }}
+            >
+              <img
+                src={exp.icon}
+                alt={`${exp.title} Icon`}
+                className="experience-icon animated-icon"
+                style={{ width: '120px', height: '120px' }}
+              />
             </div>
-            <div className="experience-content">
+            <div className="experience-content" ref={el => contentRefs.current[idx] = el}>
               <h3>{exp.title}</h3>
+              {exp.company && (
+                <p style={{ color: "#00ffff", fontWeight: 600, marginTop: 5 }}>Company name - {exp.company}</p>
+              )}
               <ul>
                 {exp.description.map((point, pIdx) => (
                   <li key={pIdx}>{point}</li>

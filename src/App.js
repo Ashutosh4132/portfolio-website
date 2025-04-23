@@ -4,6 +4,7 @@ import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import Education from './components/Education';
 
 import { NavBar } from "./components/NavBar";
 import { Banner } from "./components/Banner";
@@ -33,6 +34,7 @@ function App() {
         <ProfessionalExp />
         <Skills />
         <Projects />
+        <Education />
         <Certification/>
         <Contact />
         <Footer />

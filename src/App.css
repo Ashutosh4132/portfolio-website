@@ -106,9 +106,14 @@ nav.navbar .navbar-nav .nav-link.navbar-link {
   opacity: 0.75;
 }
 nav.navbar .navbar-nav a.nav-link.navbar-link:hover,
-nav.navbar .navbar-nav a.nav-link.navbar-link.active {
-    opacity: 1;
+nav.navbar .navbar-nav .nav-link.navbar-link.active {
+  opacity: 1;
+  color: #fff !important;
+  text-shadow: none;
+  font-weight: bold;
 }
+
+
 span.navbar-text {
     display: flex;
     align-items: center;
@@ -253,7 +258,7 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
   content: "";
   position: absolute;
   top: 0; left: 0; right: 0; bottom: 0;
-  background-image: url("/assets/img/banner-bg.png");
+  background-image: url("./assets/img/banner-bg.png");
   background-size: cover;
   background-position: center;
   opacity: 0.5; /* 👈 Adjust for visibility */
@@ -934,8 +939,9 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
   }
 
   .experience-icon {
-    width: 40px;
-    height: 40px;
+    width: 60%;
+    max-width: 80px;
+    height: auto;
   }
 
   .source-button {
@@ -1272,4 +1278,97 @@ body.dialog-open {
 }
 .slow-pulse {
   --animate-duration: 3s; /* Default is 1s, increase to slow it down */
+}
+.experience-date {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #00ffff;
+  background: rgba(0, 255, 255, 0.08);
+  padding: 6px 10px;
+  border-radius: 6px;
+  z-index: 1;
+}
+.experience-card {
+  position: relative;
+}
+.education-section {
+  padding: 50px 30px;
+  text-align: center;
+  background: radial-gradient(ellipse at center, #0d0d1f 0%, #000000 100%);
+  background-image: url("https://transparenttextures.com/patterns/stardust.png");
+  background-size: 400px 400px;
+  animation: starscroll 120s linear infinite;
+}
+
+.education-card {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(0, 255, 255, 0.2);
+  border-radius: 12px;
+  padding: 30px;
+  margin: 30px auto;
+  max-width: 600px;
+  text-align: left;
+  color: #fff;
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.1);
+}
+
+.education-card h3 {
+  color: #00ffff;
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+.education-card p {
+  font-size: 18px;
+  margin: 6px 0;
+  color: #ccc;
+}
+.experience-card {
+  align-items: stretch; /* Ensure children align in height */
+}
+
+.experience-icon-section {
+  flex: 0 0 140px;
+  max-width: 240px;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+  background: #142850;
+  border-radius: 20px;
+}
+/* Responsive Fixes */
+@media (max-width: 768px) {
+  .experience-card {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .experience-icon-section {
+    max-width: 100px;
+    margin-bottom: 20px;
+  }
+
+  .experience-icon {
+    max-width: 60px;
+  }
+
+  .experience-content h3 {
+    font-size: clamp(1.2rem, 4vw, 1.8rem);
+  }
+
+  .experience-content li {
+    font-size: clamp(0.9rem, 2.5vw, 1rem);
+  }
+}
+
+/* Double the icon size in Education section only */
+#education .experience-icon {
+  width: 120px;
+  height: auto;
 }

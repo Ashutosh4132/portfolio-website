@@ -4,7 +4,6 @@ import headerImg from "../assets/img/header-img.svg";
 import { ArrowDownCircle } from 'react-bootstrap-icons';
 import TrackVisibility from 'react-on-screen';
 import React from 'react';
-import bannerBg from "../assets/img/banner-bg.png";
 import 'animate.css';
 
 export const Banner = () => {

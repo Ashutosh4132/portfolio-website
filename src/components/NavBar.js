@@ -7,7 +7,6 @@ import navIcon2 from '../assets/img/github-mark-white.svg';
 import navIcon3 from '../assets/img/icons8-gmail-logo.svg';
 import React from 'react';
 
-
 export const NavBar = () => {
   const [activeLink, setActiveLink] = useState('home');
   const [scrolled, setScrolled] = useState(false);
@@ -16,9 +15,34 @@ export const NavBar = () => {
     const onScroll = () => {
       setScrolled(window.scrollY > 50);
     };
-
     window.addEventListener("scroll", onScroll);
-    return () => window.removeEventListener("scroll", onScroll);
+
+    const sectionObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const sectionId = entry.target.id;
+            setActiveLink(sectionId);
+          }
+        });
+      },
+      {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.6,
+      }
+    );
+
+    const sections = ['home', 'skills', 'projects', 'experience'];
+    sections.forEach(id => {
+      const el = document.getElementById(id);
+      if (el) sectionObserver.observe(el);
+    });
+
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      sectionObserver.disconnect();
+    };
   }, []);
 
   return (
@@ -32,23 +56,18 @@ export const NavBar = () => {
         </Navbar.Toggle>
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ms-auto">
-            <Nav.Link href="#home" className={activeLink === 'home' ? 'active navbar-link' : 'navbar-link'} onClick={() => setActiveLink('home')}>
-              Home
-            </Nav.Link>
-            <Nav.Link href="#skills" className={activeLink === 'skills' ? 'active navbar-link' : 'navbar-link'} onClick={() => setActiveLink('skills')}>
-              Skills
-            </Nav.Link>
-            <Nav.Link href="#projects" className={activeLink === 'projects' ? 'active navbar-link' : 'navbar-link'} onClick={() => setActiveLink('projects')}>
-              Projects
-            </Nav.Link>
+            <Nav.Link href="#home" className={activeLink === 'home' ? 'active navbar-link' : 'navbar-link'}>Home</Nav.Link>
+            <Nav.Link href="#experience" className={activeLink === 'experience' ? 'active navbar-link' : 'navbar-link'}>Experience</Nav.Link>
+            <Nav.Link href="#projects" className={activeLink === 'projects' ? 'active navbar-link' : 'navbar-link'}>Projects</Nav.Link>
+            <Nav.Link href="#skills" className={activeLink === 'skills' ? 'active navbar-link' : 'navbar-link'}>skills</Nav.Link>
           </Nav>
           <span className="navbar-text">
             <div className="social-icon">
-              <a href="https://www.linkedin.com/in/ashutosh-mishra-919388210/"><img src={navIcon1} alt="Social Icon 1" /></a>
-              <a href="https://github.com/Ashutosh4132"><img src={navIcon2} alt="Social Icon 2" /></a>
-              <a href="https://mail.google.com/mail/?view=cm&fs=1&to=am9981435388@gmail.com" target="_blank" rel="noopener noreferrer"><img src={navIcon3} alt="Social Icon 3" /></a>
+              <a href="https://www.linkedin.com/in/ashutosh-mishra-919388210/"><img src={navIcon1} alt="LinkedIn" /></a>
+              <a href="https://github.com/Ashutosh4132"><img src={navIcon2} alt="GitHub" /></a>
+              <a href="https://mail.google.com/mail/?view=cm&fs=1&to=am9981435388@gmail.com" target="_blank" rel="noopener noreferrer"><img src={navIcon3} alt="Gmail" /></a>
             </div>
-            <HashLink smooth to='#contact'>
+            <HashLink smooth to="#contact">
               <button className="vvd"><span>Let's Connect</span></button>
             </HashLink>
           </span>
