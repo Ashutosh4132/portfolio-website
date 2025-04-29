@@ -835,7 +835,7 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
 
 /* Left Rectangle: Icon & Button */
 .experience-icon-section {
-  width: 150px;
+  width: 190px;
   text-align: center;
   background: #142850;
   border-radius: 20px;
@@ -848,7 +848,7 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
 
 /* Icon Styling + Animation */
 .experience-icon {
-  width: 60px;
+  width: 90px;
   height: 60px;
   margin-bottom: 15px;
   transition: transform 0.3s ease-in-out;
@@ -1371,4 +1371,9 @@ body.dialog-open {
 #education .experience-icon {
   width: 120px;
   height: auto;
+}
+@media (max-width: 768px) {
+  .banner {
+    padding-top: 90px; /* Adjust based on navbar height */
+  }
 }
