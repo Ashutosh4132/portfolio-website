@@ -1408,3 +1408,24 @@ body.dialog-open {
     transition: all 0.3s ease-in-out;
   }
 }
+/* ─── Desktop: transparent banner ───────────────────────────────── */
+@media screen and (min-width: 769px) {
+  .banner {
+    background: transparent !important;
+  }
+  /* hide the pseudo‐element too */
+  .banner::before {
+    background: none !important;
+  }
+}
+
+/* ─── Mobile (≤768px): black banner ───────────────────────────────── */
+@media screen and (max-width: 768px) {
+  .banner {
+    background: #000 !important;
+  }
+  /* prevent the starry‐bg image from showing */
+  .banner::before {
+    background: none !important;
+  }
+}
