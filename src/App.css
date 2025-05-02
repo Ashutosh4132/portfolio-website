@@ -1419,13 +1419,3 @@ body.dialog-open {
   }
 }
 
-/* ─── Mobile (≤768px): black banner ───────────────────────────────── */
-@media screen and (max-width: 768px) {
-  .banner {
-    background: #000 !important;
-  }
-  /* prevent the starry‐bg image from showing */
-  .banner::before {
-    background: none !important;
-  }
-}
