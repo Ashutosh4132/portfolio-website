@@ -1395,3 +1395,16 @@ body.dialog-open {
     width: 100% !important;
   }
 }
+/* Custom black background for collapsed navbar menu */
+.custom-collapse-bg {
+  background-color: #000 !important;
+  padding: 1rem;
+  border-radius: 8px;
+}
+
+/* Optional: smooth toggle dropdown animation */
+@media (max-width: 992px) {
+  .custom-navbar .navbar-collapse {
+    transition: all 0.3s ease-in-out;
+  }
+}

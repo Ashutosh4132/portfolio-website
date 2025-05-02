@@ -61,12 +61,10 @@ const Certification = () => {
 
   const openDialog = (index) => {
     setOpenIndex(index);
-    document.body.classList.add('dialog-open');
   };
 
   const closeDialog = () => {
     setOpenIndex(null);
-    document.body.classList.remove('dialog-open');
   };
 
   const handleDialogClick = (e) => {
@@ -98,7 +96,6 @@ const Certification = () => {
         ))}
       </div>
 
-      {/* Render dialog outside card loop */}
       {openIndex !== null && (
         <div className="certification-dialog" onClick={handleDialogClick}>
           <div className="dialog-content zoom-in">
