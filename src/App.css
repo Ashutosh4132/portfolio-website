@@ -1350,28 +1350,21 @@ body.dialog-open {
   }
 
   .experience-icon-section {
-    max-width: 100%;
-    margin-bottom: 20px;
+    width: 100% !important;
     display: flex !important;
-    flex-direction: column;
     justify-content: center !important;
     align-items: center !important;
+    margin-bottom: 20px;
+    padding: 20px 0 !important;
   }
 
   .experience-icon {
-    max-width: 60px;
-    margin: 0 auto;
-    display: block;
-  }
-
-  .experience-content h3 {
-    font-size: clamp(1.2rem, 4vw, 1.8rem);
-  }
-
-  .experience-content li {
-    font-size: clamp(0.9rem, 2.5vw, 1rem);
+    max-width: 100px !important;
+    height: auto;
+    margin: 0 auto !important;
   }
 }
+
 
 
 /* Double the icon size in Education section only */
