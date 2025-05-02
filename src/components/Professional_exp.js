@@ -105,10 +105,6 @@ const ProfessionalExp = () => {
             <div
               className="experience-icon-section"
               title={exp.tooltip}
-              style={{
-                height: heights[idx],
-                padding: 0,
-              }}
             >
 
               <img
