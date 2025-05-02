@@ -46,7 +46,7 @@ export const NavBar = () => {
   }, []);
 
   return (
-    <Navbar expand="md" className={scrolled ? "scrolled" : ""}>
+    <Navbar expand={false} className={scrolled ? "scrolled" : ""}>
       <Container>
         <Navbar.Brand href="/">
           <img src={logo} alt="Logo" />
@@ -54,24 +54,24 @@ export const NavBar = () => {
         <Navbar.Toggle aria-controls="basic-navbar-nav">
           <span className="navbar-toggler-icon"></span>
         </Navbar.Toggle>
-        <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="ms-auto">
-            <Nav.Link href="#home" className={activeLink === 'home' ? 'active navbar-link' : 'navbar-link'}>Home</Nav.Link>
-            <Nav.Link href="#experience" className={activeLink === 'experience' ? 'active navbar-link' : 'navbar-link'}>Experience</Nav.Link>
-            <Nav.Link href="#projects" className={activeLink === 'projects' ? 'active navbar-link' : 'navbar-link'}>Projects</Nav.Link>
-            <Nav.Link href="#skills" className={activeLink === 'skills' ? 'active navbar-link' : 'navbar-link'}>skills</Nav.Link>
-          </Nav>
-          <span className="navbar-text">
-            <div className="social-icon">
-              <a href="https://www.linkedin.com/in/ashutosh-mishra-919388210/"><img src={navIcon1} alt="LinkedIn" /></a>
-              <a href="https://github.com/Ashutosh4132"><img src={navIcon2} alt="GitHub" /></a>
-              <a href="https://mail.google.com/mail/?view=cm&fs=1&to=am9981435388@gmail.com" target="_blank" rel="noopener noreferrer"><img src={navIcon3} alt="Gmail" /></a>
-            </div>
-            <HashLink smooth to="#contact">
-              <button className="vvd"><span>Let's Connect</span></button>
-            </HashLink>
-          </span>
-        </Navbar.Collapse>
+        <Nav className="ms-auto d-flex flex-row gap-3">
+          <Nav.Link href="#home" className={activeLink === 'home' ? 'active navbar-link' : 'navbar-link'}>Home</Nav.Link>
+          <Nav.Link href="#experience" className={activeLink === 'experience' ? 'active navbar-link' : 'navbar-link'}>Experience</Nav.Link>
+          <Nav.Link href="#projects" className={activeLink === 'projects' ? 'active navbar-link' : 'navbar-link'}>Projects</Nav.Link>
+          <Nav.Link href="#skills" className={activeLink === 'skills' ? 'active navbar-link' : 'navbar-link'}>Skills</Nav.Link>
+        </Nav>
+
+        <span className="navbar-text">
+          <div className="social-icon">
+            <a href="https://www.linkedin.com/in/ashutosh-mishra-919388210/"><img src={navIcon1} alt="LinkedIn" /></a>
+            <a href="https://github.com/Ashutosh4132"><img src={navIcon2} alt="GitHub" /></a>
+            <a href="https://mail.google.com/mail/?view=cm&fs=1&to=am9981435388@gmail.com" target="_blank" rel="noopener noreferrer"><img src={navIcon3} alt="Gmail" /></a>
+          </div>
+          <HashLink smooth to="#contact">
+            <button className="vvd"><span>Let's Connect</span></button>
+          </HashLink>
+        </span>
+
       </Container>
     </Navbar>
   );
