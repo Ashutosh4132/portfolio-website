@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import headerImg from "../assets/img/header-img.svg";
+import resumePdf from "../assets/Ashutosh_Mishra_CV_2025.pdf";  // ← import your PDF
 import { ArrowDownCircle } from 'react-bootstrap-icons';
 import TrackVisibility from 'react-on-screen';
 import React from 'react';
@@ -21,8 +22,8 @@ export const Banner = () => {
   const tick = () => {
     const i = loopNum % toRotate.length;
     const fullText = toRotate[i];
-    const updatedText = isDeleting 
-      ? fullText.substring(0, text.length - 1) 
+    const updatedText = isDeleting
+      ? fullText.substring(0, text.length - 1)
       : fullText.substring(0, text.length + 1);
 
     setText(updatedText);
@@ -49,8 +50,8 @@ export const Banner = () => {
                   <h1>{`Hi! I'm Ashutosh Mishra`} <span className="wrap">{text}</span></h1>
                   <p>Software Developer & Machine Learning Engineer with 2+ years of experience in software development, model training, APIs, manual, and automation testing.</p>
                   <a 
-                    href="/assets/Ashutosh_Mishra_CV_2025.pdf" 
-                    download 
+                    href={resumePdf} 
+                    download="Ashutosh_Mishra_CV_2025.pdf" 
                     className="download-btn"
                   >
                     <button className="animate__animated animate__pulse animate__infinite slow-pulse">
