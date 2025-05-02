@@ -106,14 +106,11 @@ const ProfessionalExp = () => {
               className="experience-icon-section"
               title={exp.tooltip}
               style={{
-                width: '20%',
                 height: heights[idx],
                 padding: 0,
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
               }}
             >
+
               <img
                 src={exp.icon}
                 alt={`${exp.title} Icon`}
