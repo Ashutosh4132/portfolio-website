@@ -1377,3 +1377,21 @@ body.dialog-open {
     padding-top: 90px; /* Adjust based on navbar height */
   }
 }
+@media (max-width: 768px) {
+  .nav-pills .nav-link {
+    padding: 10px 12px !important;
+    font-size: 14px !important;
+    white-space: normal !important;
+    word-break: break-word !important;
+    line-height: 1.2 !important;
+  }
+
+  .nav-pills {
+    flex-direction: column !important;
+    gap: 10px;
+  }
+
+  .nav-pills .nav-item {
+    width: 100% !important;
+  }
+}
