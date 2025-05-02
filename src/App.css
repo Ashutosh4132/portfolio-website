@@ -1350,12 +1350,18 @@ body.dialog-open {
   }
 
   .experience-icon-section {
-    max-width: 100px;
+    max-width: 100%;
     margin-bottom: 20px;
+    display: flex !important;
+    flex-direction: column;
+    justify-content: center !important;
+    align-items: center !important;
   }
 
   .experience-icon {
     max-width: 60px;
+    margin: 0 auto;
+    display: block;
   }
 
   .experience-content h3 {
@@ -1366,6 +1372,7 @@ body.dialog-open {
     font-size: clamp(0.9rem, 2.5vw, 1rem);
   }
 }
+
 
 /* Double the icon size in Education section only */
 #education .experience-icon {
