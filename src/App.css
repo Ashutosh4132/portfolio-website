@@ -1419,3 +1419,45 @@ body.dialog-open {
   }
 }
 
+/* ─── Desktop: show only banner-bg.png ───────────────────────────────── */
+@media screen and (min-width: 769px) {
+  /* Remove the radial-gradient + star texture */
+  .banner {
+    background-image: none !important;
+    background-color: transparent !important;
+  }
+  /* Keep the ::before pseudo-element (banner-bg.png) */
+  .banner::before {
+    display: block !important;
+    /* you can adjust opacity here if you like */
+    opacity: 0.5;
+  }
+}
+
+/* ─── Mobile: solid black, no image ──────────────────────────────────── */
+@media screen and (max-width: 768px) {
+  .banner {
+    /* solid black */
+    background-color: #000 !important;
+    /* leave background-image alone if you don’t mind the star-patter—
+       remove it explicitly if you do: */
+    background-image: none !important;
+  }
+  .banner::before {
+    /* hide the banner-bg.png layer */
+    display: none !important;
+  }
+}
+/* Transparent on desktop */
+.navbar {
+  background-color: transparent;
+  transition: background-color 0.3s ease;
+}
+
+/* Black background on mobile */
+@media (max-width: 768px) {
+  .navbar {
+    background-color: black;
+  }
+}
+
