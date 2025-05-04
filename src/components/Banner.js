@@ -1,10 +1,10 @@
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import headerImg from "../assets/img/header-img.svg";
-import resumePdf from "../assets/Ashutosh_Mishra_CV_2025.pdf";  // ← import your PDF
+import bannerBg from "../assets/img/banner-bg.png"; // ✅ Imported background image
+import resumePdf from "../assets/Ashutosh_Mishra_CV_2025.pdf";
 import { ArrowDownCircle } from 'react-bootstrap-icons';
 import TrackVisibility from 'react-on-screen';
-import React from 'react';
 import 'animate.css';
 
 export const Banner = () => {
@@ -39,7 +39,16 @@ export const Banner = () => {
   };
 
   return (
-    <section className="banner starry-bg" id="banner">
+    <section 
+      className="banner" 
+      id="banner"
+      style={{
+        backgroundImage: `url(${bannerBg})`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat',
+      }}
+    >
       <Container>
         <Row className="align-items-center">
           <Col xs={12} md={6} xl={7}>
