@@ -6,7 +6,7 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 import Education from './components/Education';
 
-import { NavBar } from "./components/NavBar";
+import  NavBar  from "./components/NavBar";
 import { Banner } from "./components/Banner";
 import Technologies from "./components/Technologies";
 import { Skills } from "./components/Skills";

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Navbar, Nav, Container } from "react-bootstrap";
 import { HashLink } from 'react-router-hash-link';
-import logo from '../assets/img/logo.svg';
+import logo from '../assets/img/am.svg';
 
 const NavBar = () => {
   const [scrolled, setScrolled] = useState(false);

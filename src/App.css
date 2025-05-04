@@ -238,32 +238,33 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
 /************ Banner Css ************/
 .banner {
   position: relative;
+  background-image: url('./assets/img/banner-bg.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding: 100px 0;
+  color: white;
+  z-index: 1;
   overflow: hidden;
-  z-index: 0;
-  min-height: 100vh; /* ⬅️ doubled the height */
-  background:
-    radial-gradient(ellipse at center, rgba(13, 13, 31, 0.6), rgba(0, 0, 0, 0.85)),
-    url("https://transparenttextures.com/patterns/stardust.png");
-  background-size: cover, 400px 400px;
-  background-repeat: no-repeat, repeat;
-  background-position: center, center;
-  animation: starscroll 120s linear infinite;
-  display: flex;
-  align-items: center;
 }
 
-
-/* Layer the banner background image using a pseudo-element */
 .banner::before {
   content: "";
   position: absolute;
-  top: 0; left: 0; right: 0; bottom: 0;
-  background-image: url("./assets/img/banner-bg.png");
-  background-size: cover;
-  background-position: center;
-  opacity: 0.5; /* 👈 Adjust for visibility */
-  z-index: -1;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.2));
+  /* Adjust the 0.5 for lighter/darker tint */
+  z-index: 0;
 }
+
+.banner > * {
+  position: relative;
+  z-index: 2;
+}
+
 
 
 .banner .tagline {
@@ -1459,5 +1460,14 @@ body.dialog-open {
   .navbar {
     background-color: black;
   }
+}
+/* Make navbar links white */
+.navbar .nav-link {
+  color: white !important;
+}
+
+/* Optional: Change color on hover */
+.navbar .nav-link:hover {
+  color: #ddd !important;
 }
 
